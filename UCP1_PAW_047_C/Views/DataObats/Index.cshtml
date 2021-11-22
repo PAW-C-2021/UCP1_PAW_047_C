@@ -1,0 +1,53 @@
+﻿@model IEnumerable<UCP1_PAW_047_C.Models.DataObat>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Data Obat</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName(" Nama Obat ")
+            </th>
+            <th>
+                @Html.DisplayName(" Tanggal Kadaluarsa ")
+            </th>
+            <th>
+                @Html.DisplayName(" Harga ")
+            </th>
+            <th>
+                @Html.DisplayName(" Komposisi ")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaObat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TanggalKadaluarsa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Harga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Komposisi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdObat"><i class="fa fa-marker fa-lg"> </i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdObat"><i class="fas fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdObat"><i class="fa fa-trash-alt fa-lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
